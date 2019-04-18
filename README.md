@@ -1,3 +1,15 @@
+## typescript & sass & asset path
+
+It is based on create-reate-app and it's eject command.
+slightly mutated with alias path for asset folder(@image/~, @style/~)
+added tslint and prettier
+
+### `npm tslint` or `npm tslint:fix`
+
+check(tslint) or to fix(tslint:fix) automatically
+add more rules at tslint.json if you need more
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

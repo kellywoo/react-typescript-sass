@@ -3,6 +3,7 @@ import '@style/App.sass';
 import logo from '@image/logo.svg';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">

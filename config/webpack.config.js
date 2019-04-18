@@ -323,7 +323,7 @@ module.exports = function(webpackEnv) {
               loader: require.resolve('url-loader'),
               options: {
                 limit: 10000,
-                name: 'static/media/[name].[hash:8].[ext]',
+                name: 'static/image/[name].[hash:8].[ext]',
               },
             },
             // Process application JS with Babel.
