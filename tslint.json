@@ -5,6 +5,8 @@
     "tslint-plugin-prettier"
   ],
   "rules": {
+    "no-submodule-imports": false,
+    "autoFixOnSave": true,
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {

@@ -1,11 +1,13 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@component/*": ["src/app/component/*"]
+    },
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,9 +20,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "plugins": [{"name":  "typescript-tslint-plugin"}]
+    "plugins": [{ "name": "typescript-tslint-plugin" }]
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
