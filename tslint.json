@@ -19,10 +19,7 @@
     ],
     "interface-name": false,
     "max-classes-per-file": false,
-    "max-line-length": [
-      true,
-      140
-    ],
+    "max-line-length": [{"limit": 140, "ignore-pattern": "^const | ^import |^export {(.*?)}"}],
     "member-access": false,
     "member-ordering": [
       true,
@@ -63,7 +60,7 @@
     "interface-over-type-literal": false,
     "no-var-requires": false,
     "object-literal-key-quotes": [
-      true,
+      false,
       "as-needed"
     ],
     "object-literal-sort-keys": false,

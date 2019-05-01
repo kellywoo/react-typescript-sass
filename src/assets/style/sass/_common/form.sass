@@ -1,0 +1,65 @@
+$input_height: 3.6rem
+$input_font_size: 16px
+$label_font-size: 14px
+$error_font-size: 12px
+%input
+  font-size: $input_font_size
+  height: $input_height
+  padding: 0 5px
+  width: 100%
+.form-fieldset
+  & + &
+    margin-top: 2rem
+.form-legend
+  @extend .input-label
+  display: block
+  margin-bottom: 2rem
+.form-action
+  margin-top: 3rem
+  text-align: center
+.form-control
+  display: block
+  .input-error-box
+    margin-top: 1rem
+    font-size: $error_font-size
+    overflow: hidden
+    color: $color_red
+  &+&
+    margin-top: 3rem
+
+.input-label
+  font-weight: bold
+  font-size: $label_font-size
+
+.input-line-box
+  position: relative
+  .input-line-active
+    display: block
+    width: 100%
+    border-top: 1px solid #d5d5d5
+  .input-btn
+    position: absolute
+    right: 5px
+    top: 50%
+    transform: translateY(-50%)
+
+  .input
+    border: none
+    @extend %input
+    &:focus + .input-line-active
+      border-color: $color_yellow
+      animation-fill-mode: forwards
+      animation-name: wide_width
+      animation-duration: 0.4s
+.input
+  border: 1px solid #d5d5d5
+  @extend %input
+  &:focus
+    border-color: $color_sky
+
+@keyframes wide_width
+  from
+    width : 0
+  to
+    width: 100%
+
