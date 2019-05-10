@@ -1,43 +1,45 @@
 import React, { Component } from 'react';
 import '@style/App.sass';
-import logo from '@image/logo.svg';
-import Child from '@component/views/child/Child';
+import { counterActions } from '@app/store/action/counter.action';
+import {connect} from 'react-redux'
+import { store } from '@app/store';
+import { createSelector } from 'reselect';
 
 // https://github.com/piotrwitek/react-redux-typescript-guide#--with-default-props
-interface IState {
-  value: number;
+interface IProps {
+  count: number;
 }
-class App extends Component {
-  readonly state: IState = { value: 0 };
-  increment() {
-    setInterval(() => {
-      this.setState((prevState: IState) => {
-        return { value: ++prevState.value };
-      });
-    }, 5000);
+
+// https://orezytivarg.github.io/improving-react-and-redux-performance-with-reselect/
+
+class App extends Component<IProps> {
+
+  increase = () =>{
+    store.dispatch(counterActions.increase(1))
+  }
+  decrease = () =>{
+    store.dispatch(counterActions.decrease(1))
   }
 
-  componentDidMount() {
-    this.increment();
-  }
-
-  render() {
+  render(){
+    console.log('render')
     return (
-      <div className="App">
-        <header className="App-header">
-          <Child value={this.state.value} />
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <strong>{this.props.count}</strong>
+        <div>
+          <button type="button" onClick={this.increase}>increase</button>
+          <button type="button" onClick={this.decrease}>decrease</button>
+        </div>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+// shallow compare memoization
+const getCountValue = createSelector([(state: any) => state.counter], state => state.value);
+
+const withProp = (state: any) => {
+  return {count: getCountValue(state)};
+}
+
+export default connect(withProp)(App);
